@@ -4,21 +4,38 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
+const API_URL = "https://rickandmortyapi.com/api/";
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
 
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
 
-try {
-    const result = await axios.get("https://rickandmortyapi.com/api/character/1");
-    res.render("index.ejs", {content: JSON.stringify(result.data)})
-}
+        res.render("index.ejs");
 
-catch (error) {
-    console.error(error.message);
-    res.render("index.ejs", {error: error.message});
-}
+})
+
+app.post("/submit", async (req, res) => {
+
+    const characterId = req.body.id;
+
+    try {
+        const response = await axios.get(API_URL +  `character/${characterId}`);
+        const data = [
+            {data: JSON.stringify(response.data.name)},
+            {data: JSON.stringify(response.data.status)},
+            {data: JSON.stringify(response.data.species)},
+            {data: JSON.stringify(response.data.gender)},
+            {data: JSON.stringify(response.data.origin.name)}
+        ];
+        res.render("index.ejs", {data: data});
+    }
+
+    catch (error) {
+        console.error(error);
+        res.render("index.ejs", {error: error.message});
+    }
 
 })
 

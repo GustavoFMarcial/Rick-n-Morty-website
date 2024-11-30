@@ -1,3 +1,49 @@
-<% if (locals.content) { %>
-    <%= content %>
-<% } %>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>A Rick and Morty Website</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="container-content">
+            <% if (!locals.data) { %>
+                <img class="question-mark-img" src="/images/question-mark.jpg">
+                <p>Selecione um personagem para ver suas informações</p>
+            <% } %>
+            <% if (locals.data) { %>
+                <ul>
+                    <% for (let i = 0; i < data.length; i++) { %>
+                        <li><%= data[i].data %></li>
+                    <% } %>
+                </ul>
+            <% } %>
+            <% if (locals.error) { %>
+                <%= error %>
+            <% } %>
+        </div>
+
+        <div class="container-submit">
+            <form method="POST" action="/submit">
+                <label for="characters"></label>
+                <select id="characters" name="id">
+                    <option value="1">Rick Sanchez</option>
+                    <option value="2">Morty Smith</option>
+                    <option value="3">Summer Smith</option>
+                    <option value="4">Beth Smith</option>
+                    <option value="5">Jerry Smith</option>
+                </select>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    
+</body>
+
+</html>
