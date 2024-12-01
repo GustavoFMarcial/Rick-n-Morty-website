@@ -23,7 +23,8 @@ body {
     width: 200px;
 }
 
-.character-img {
+.container-information {
+    background-color: #FFDDAE;
     border-style: solid;
 }
 

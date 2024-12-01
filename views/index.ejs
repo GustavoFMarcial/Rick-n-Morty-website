@@ -20,13 +20,13 @@
             <% } %>
             <!-- Condição onde a request foi feita e retornou 200 -->
             <% if (locals.data) { %>
-                <img class="character-img" src="<%= data[5].data %>">
-                <div class="container-ul">
-                    <ul>
-                        <% for (let i = 0; i < data.length - 1; i++) { %>
-                            <li><%= data[i].data %></li>
-                        <% } %>
-                    </ul>
+                <div class="container-information">
+                    <img class="character-img" src="<%= data[5].data %>">
+                        <ul>
+                            <% for (let i = 0; i < data.length - 1; i++) { %>
+                                <li><%= data[i].data %></li>
+                            <% } %>
+                        </ul>
                 </div>
             <% } %>
             <!-- Condição onde a request foi feita e retornou algum erro -->
@@ -34,7 +34,6 @@
                 <%= error %>
             <% } %>
         </div>
-
         <!-- Formulário para o usuário selecionar o personagem que deseja ver as informações -->
         <div class="container-submit">
             <form method="POST" action="/submit">
