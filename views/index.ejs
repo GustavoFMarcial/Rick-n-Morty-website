@@ -13,22 +13,29 @@
 
     <div class="container">
         <div class="container-content">
+            <!-- Condição onde a request não foi feita -->
             <% if (!locals.data) { %>
                 <img class="question-mark-img" src="/images/question-mark.jpg">
                 <p>Selecione um personagem para ver suas informações</p>
             <% } %>
+            <!-- Condição onde a request foi feita e retornou 200 -->
             <% if (locals.data) { %>
-                <ul>
-                    <% for (let i = 0; i < data.length; i++) { %>
-                        <li><%= data[i].data %></li>
-                    <% } %>
-                </ul>
+                <img class="character-img" src="<%= data[5].data %>">
+                <div class="container-ul">
+                    <ul>
+                        <% for (let i = 0; i < data.length - 1; i++) { %>
+                            <li><%= data[i].data %></li>
+                        <% } %>
+                    </ul>
+                </div>
             <% } %>
+            <!-- Condição onde a request foi feita e retornou algum erro -->
             <% if (locals.error) { %>
                 <%= error %>
             <% } %>
         </div>
 
+        <!-- Formulário para o usuário selecionar o personagem que deseja ver as informações -->
         <div class="container-submit">
             <form method="POST" action="/submit">
                 <label for="characters"></label>
@@ -38,6 +45,11 @@
                     <option value="3">Summer Smith</option>
                     <option value="4">Beth Smith</option>
                     <option value="5">Jerry Smith</option>
+                    <option value="6">Abadango Cluster Princess</option>
+                    <option value="7">Abradolf Lincler</option>
+                    <option value="8">Adjudicator Rick</option>
+                    <option value="9">Agency Director</option>
+                    <option value="10">Alan Rails</option>
                 </select>
                 <input type="submit">
             </form>

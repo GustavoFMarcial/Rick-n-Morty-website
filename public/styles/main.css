@@ -22,3 +22,19 @@ body {
 .question-mark-img {
     width: 200px;
 }
+
+.character-img {
+    border-style: solid;
+}
+
+.container-ul {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    background-color: #FFDDAE;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0 0 0 10px;
+}
