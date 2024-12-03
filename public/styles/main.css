@@ -20,6 +20,11 @@ body {
     flex-direction: column;
 }
 
+p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .question-mark-img {
     width: 200px;
 }
@@ -27,6 +32,7 @@ body {
 .container-information {
     background-color: #FFDDAE;
     border-style: solid;
+    font-size: 14px;
 }
 
 .container-ul {
