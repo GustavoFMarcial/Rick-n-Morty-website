@@ -25,21 +25,10 @@ p {
     font-weight: bold;
 }
 
-.question-mark-img {
-    width: 200px;
-}
-
 .container-information {
     background-color: #FFDDAE;
     border-style: solid;
     font-size: 14px;
-}
-
-.container-ul {
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    background-color: #FFDDAE;
 }
 
 ul {
@@ -56,4 +45,43 @@ ul {
 .button {
     height: 25px;
     font-family: "Montserrat", sans-serif;
+}
+
+@media (max-width: 580px) {
+    p {
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .container-information {
+        font-size: 14px;
+    }
+
+    .container-selectbutton {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .character-img, .question-mark-img {
+        height: 200px;
+    }
+
+    .button {
+        margin-top: 10px;
+    }
+
+    .select, .button {
+        width: 200px;
+    }
+}
+
+@media (max-width: 250px) {
+    .character-img, .question-mark-img {
+        height: 190px;
+    }
+
+    .select, .button {
+        width: 185px;
+    }
 }

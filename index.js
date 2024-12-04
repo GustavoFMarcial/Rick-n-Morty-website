@@ -27,7 +27,7 @@ app.post("/submit", async (req, res) => {
             {data: "Status: " +  JSON.stringify(response.data.status).replace(/"/g, '')},
             {data: "Specie: " +  JSON.stringify(response.data.species).replace(/"/g, '')},
             {data: "Gender: " +  JSON.stringify(response.data.gender).replace(/"/g, '')},
-            {data: "Origin: " +  JSON.stringify(response.data.origin.name).replace(/"/g, '')},
+            {data: "Origin: " +  JSON.stringify(response.data.origin.name).replace(/"/g, '').replace("(Replacement Dimension)", "")},
             {data: JSON.stringify(response.data.image).replace(/"/g, '')}
         ];
         res.render("index.ejs", {data: data});
